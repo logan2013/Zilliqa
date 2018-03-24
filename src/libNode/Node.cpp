@@ -418,8 +418,8 @@ bool Node::CheckState(Action action)
     return result;
 }
 
-vector<Peer> Node::GetBroadcastList(unsigned char ins_type,
-                                    const Peer& broadcast_originator)
+vector<Peer> Node::GetBroadcastList(unsigned char /*ins_type*/,
+                                    const Peer& /*broadcast_originator*/)
 {
     LOG_MARKER();
 
@@ -558,7 +558,7 @@ bool Node::CheckCreatedTransaction(const Transaction& tx)
 #endif // IS_LOOKUP_NODE
 
 bool Node::ProcessCreateTransaction(const vector<unsigned char>& message,
-                                    unsigned int offset, const Peer& from)
+                                    unsigned int offset, const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // This message is sent by the test script and is used to generate a new transaction for submitting to the network
@@ -645,7 +645,7 @@ bool Node::ProcessCreateTransaction(const vector<unsigned char>& message,
 
 #ifndef IS_LOOKUP_NODE
 bool Node::ProcessSubmitMissingTxn(const vector<unsigned char>& message,
-                                   unsigned int offset, const Peer& from)
+                                   unsigned int offset, const Peer& /*from*/)
 {
     auto msgBlockNum
         = Serializable::GetNumber<uint32_t>(message, offset, sizeof(uint32_t));
@@ -677,7 +677,7 @@ bool Node::ProcessSubmitMissingTxn(const vector<unsigned char>& message,
 }
 
 bool Node::ProcessSubmitTxnSharing(const vector<unsigned char>& message,
-                                   unsigned int offset, const Peer& from)
+                                   unsigned int offset, const Peer& /*from*/)
 {
     LOG_MARKER();
 
@@ -754,7 +754,8 @@ bool Node::ProcessSubmitTransaction(const vector<unsigned char>& message,
 }
 
 bool Node::ProcessCreateTransactionFromLookup(
-    const vector<unsigned char>& message, unsigned int offset, const Peer& from)
+    const vector<unsigned char>& message, unsigned int offset,
+    const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
 

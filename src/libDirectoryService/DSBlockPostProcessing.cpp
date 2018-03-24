@@ -286,7 +286,7 @@ void DirectoryService::ScheduleShardingConsensus(const unsigned int wait_window)
 }
 
 void DirectoryService::ProcessDSBlockConsensusWhenDone(
-    const vector<unsigned char>& message, unsigned int offset)
+    const vector<unsigned char>& /*message*/, unsigned int /*offset*/)
 {
     LOG_MESSAGE2(to_string(m_mediator.m_currentEpochNum).c_str(),
                  "DS block consensus is DONE!!!");

@@ -69,7 +69,7 @@ bool PeerManager::ProcessHello(const vector<unsigned char>& message,
 }
 
 bool PeerManager::ProcessAddPeer(const vector<unsigned char>& message,
-                                 unsigned int offset, const Peer& from)
+                                 unsigned int offset, const Peer& /*from*/)
 {
     // Message = [32-byte peer key] [4-byte peer ip address] [4-byte peer listen port]
 
@@ -137,7 +137,7 @@ bool PeerManager::ProcessPing(const vector<unsigned char>& message,
 }
 
 bool PeerManager::ProcessPingAll(const vector<unsigned char>& message,
-                                 unsigned int offset, const Peer& from)
+                                 unsigned int offset, const Peer& /*from*/)
 {
     // Message = [raw byte stream]
 
@@ -156,7 +156,7 @@ bool PeerManager::ProcessPingAll(const vector<unsigned char>& message,
 }
 
 bool PeerManager::ProcessBroadcast(const vector<unsigned char>& message,
-                                   unsigned int offset, const Peer& from)
+                                   unsigned int offset, const Peer& /*from*/)
 {
     // Message = [raw byte stream]
 

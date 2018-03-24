@@ -118,7 +118,7 @@ bool Node::CheckWhetherDSBlockNumIsLatest(const uint256_t dsblockNum)
     return true;
 }
 
-void Node::LogReceivedDSBlockDetails(const DSBlock& dsblock)
+void Node::LogReceivedDSBlockDetails(const DSBlock& /*dsblock*/)
 {
 #ifdef IS_LOOKUP_NODE
     LOG_MESSAGE2(to_string(m_mediator.m_currentEpochNum).c_str(),
@@ -142,7 +142,7 @@ void Node::LogReceivedDSBlockDetails(const DSBlock& dsblock)
 }
 
 bool Node::ProcessDSBlock(const vector<unsigned char>& message,
-                          unsigned int cur_offset, const Peer& from)
+                          unsigned int cur_offset, const Peer& /*from*/)
 {
     // Message = [259-byte DS block] [32-byte DS block hash / rand1] [16-byte winner IP] [4-byte winner port]
     LOG_MARKER();

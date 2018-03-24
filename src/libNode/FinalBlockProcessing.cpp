@@ -192,7 +192,8 @@ void Node::LoadUnavailableMicroBlockTxRootHashes(
 }
 
 bool Node::CheckMicroBlockRootHash(
-    const TxBlock& finalBlock, const boost::multiprecision::uint256_t& blocknum)
+    const TxBlock& finalBlock,
+    const boost::multiprecision::uint256_t& /*blocknum*/)
 {
     TxnHash microBlocksHash
         = ComputeTransactionsRoot(finalBlock.GetMicroBlockHashes());
@@ -216,7 +217,7 @@ bool Node::CheckMicroBlockRootHash(
 }
 
 #ifndef IS_LOOKUP_NODE
-bool Node::FindTxnInSubmittedTxnsList(const TxBlock& finalblock,
+bool Node::FindTxnInSubmittedTxnsList(const TxBlock& /*finalblock*/,
                                       const uint256_t& blockNum,
                                       uint8_t sharing_mode,
                                       vector<Transaction>& txns_to_send,
@@ -287,7 +288,7 @@ bool Node::FindTxnInSubmittedTxnsList(const TxBlock& finalblock,
     return false;
 }
 
-bool Node::FindTxnInReceivedTxnsList(const TxBlock& finalblock,
+bool Node::FindTxnInReceivedTxnsList(const TxBlock& /*finalblock*/,
                                      const uint256_t& blockNum,
                                      uint8_t sharing_mode,
                                      vector<Transaction>& txns_to_send,
@@ -990,7 +991,7 @@ void Node::CallActOnFinalBlockBasedOnSenderForwarderAssgn(
 }
 #endif // IS_LOOKUP_NODE
 
-void Node::LogReceivedFinalBlockDetails(const TxBlock& txblock)
+void Node::LogReceivedFinalBlockDetails(const TxBlock& /*txblock*/)
 {
 #ifdef IS_LOOKUP_NODE
     LOG_MESSAGE2(to_string(m_mediator.m_currentEpochNum).c_str(),
@@ -1068,7 +1069,7 @@ bool Node::CheckStateRoot(const TxBlock& finalBlock)
 // }
 
 bool Node::ProcessFinalBlock(const vector<unsigned char>& message,
-                             unsigned int offset, const Peer& from)
+                             unsigned int offset, const Peer& /*from*/)
 {
     // Message = [32-byte DS blocknum] [4-byte consensusid] [1-byte shard id]
     //           [Final block] [Tx body sharing setup]
@@ -1355,7 +1356,8 @@ void Node::DeleteEntryFromFwdingAssgnAndMissingBodyCountMap(
 }
 
 bool Node::ProcessForwardTransaction(const vector<unsigned char>& message,
-                                     unsigned int cur_offset, const Peer& from)
+                                     unsigned int cur_offset,
+                                     const Peer& /*from*/)
 {
     // Message = [block number] [microblockhash] [Transaction] [Transaction] [Transaction] ....
     // Received from other shards

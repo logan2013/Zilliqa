@@ -208,8 +208,9 @@ Signature ConsensusCommon::AggregateSign(const Challenge& challenge,
     return *result;
 }
 
-Challenge ConsensusCommon::GetChallenge(const vector<unsigned char>& msg,
-                                        unsigned int offset, unsigned int size,
+Challenge ConsensusCommon::GetChallenge(const vector<unsigned char>& /*msg*/,
+                                        unsigned int /*offset*/,
+                                        unsigned int /*size*/,
                                         const CommitPoint& aggregated_commit,
                                         const PubKey& aggregated_key)
 {

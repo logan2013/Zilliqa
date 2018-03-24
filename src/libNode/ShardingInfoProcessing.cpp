@@ -129,7 +129,7 @@ bool Node::ReadVariablesFromShardingMessage(
 }
 
 bool Node::ProcessSharding(const vector<unsigned char>& message,
-                           unsigned int offset, const Peer& from)
+                           unsigned int offset, const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // Message = [32-byte DS blocknum] [4-byte shard ID] [4-byte committee size] [33-byte public key]

@@ -567,7 +567,8 @@ bool DirectoryService::CheckState(Action action)
 #endif // IS_LOOKUP_NODE
 
 bool DirectoryService::ProcessSetPrimary(const vector<unsigned char>& message,
-                                         unsigned int offset, const Peer& from)
+                                         unsigned int offset,
+                                         const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // Note: This function should only be invoked during bootstrap sequence
@@ -749,8 +750,8 @@ void DirectoryService::SetState(DirState state)
 }
 
 vector<Peer>
-DirectoryService::GetBroadcastList(unsigned char ins_type,
-                                   const Peer& broadcast_originator)
+DirectoryService::GetBroadcastList(unsigned char /*ins_type*/,
+                                   const Peer& /*broadcast_originator*/)
 {
     LOG_MARKER();
 
@@ -831,7 +832,8 @@ bool DirectoryService::ProcessAllPoWConnRequest(
 }
 
 bool DirectoryService::ProcessAllPoWConnResponse(
-    const vector<unsigned char>& message, unsigned int offset, const Peer& from)
+    const vector<unsigned char>& message, unsigned int offset,
+    const Peer& /*from*/)
 {
     LOG_MARKER();
     LOG_MESSAGE2(to_string(m_mediator.m_currentEpochNum).c_str(),
@@ -943,7 +945,8 @@ bool DirectoryService::ProcessLastDSBlockRequest(
 }
 
 bool DirectoryService::ProcessLastDSBlockResponse(
-    const vector<unsigned char>& message, unsigned int offset, const Peer& from)
+    const vector<unsigned char>& message, unsigned int offset,
+    const Peer& /*from*/)
 {
     LOG_MARKER();
 

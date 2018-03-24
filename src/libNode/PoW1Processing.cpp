@@ -197,7 +197,7 @@ bool Node::ReadVariablesFromStartPoW1Message(
 #endif // IS_LOOKUP_NODE
 
 bool Node::ProcessStartPoW1(const vector<unsigned char>& message,
-                            unsigned int offset, const Peer& from)
+                            unsigned int offset, const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // Note: This function should only be invoked on a new node that was not part of the sharding committees in previous epoch

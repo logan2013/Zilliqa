@@ -356,7 +356,8 @@ vector<Peer> Lookup::GetNodePeers()
 #endif // IS_LOOKUP_NODE
 
 bool Lookup::ProcessEntireShardingStructure(
-    const vector<unsigned char>& message, unsigned int offset, const Peer& from)
+    const vector<unsigned char>& /*message*/, unsigned int /*offset*/,
+    const Peer& /*from*/)
 {
     LOG_MARKER();
 
@@ -463,9 +464,9 @@ bool Lookup::ProcessEntireShardingStructure(
     return true;
 }
 
-bool Lookup::ProcessGetSeedPeersFromLookup(const vector<unsigned char>& message,
-                                           unsigned int offset,
-                                           const Peer& from)
+bool Lookup::ProcessGetSeedPeersFromLookup(
+    const vector<unsigned char>& /*message*/, unsigned int /*offset*/,
+    const Peer& /*from*/)
 {
     LOG_MARKER();
 
@@ -1000,7 +1001,7 @@ bool Lookup::ProcessGetNetworkId(const vector<unsigned char>& message,
 
 bool Lookup::ProcessSetSeedPeersFromLookup(const vector<unsigned char>& message,
                                            unsigned int offset,
-                                           const Peer& from)
+                                           const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // Message = [Peer info][Peer info]... SEED_PEER_LIST_SIZE times
@@ -1299,7 +1300,7 @@ return true;
 }
 
 bool Lookup::ProcessSetTxBodyFromSeed(const vector<unsigned char>& message,
-                                      unsigned int offset, const Peer& from)
+                                      unsigned int offset, const Peer& /*from*/)
 {
     LOG_MARKER();
 
@@ -1423,7 +1424,7 @@ bool Lookup::InitMining()
 #endif // IS_LOOKUP_NODE
 
 bool Lookup::ProcessSetStateFromSeed(const vector<unsigned char>& message,
-                                     unsigned int offset, const Peer& from)
+                                     unsigned int offset, const Peer& /*from*/)
 {
 #ifndef IS_LOOKUP_NODE
     // Message = [TRAN_HASH_SIZE txHashStr][Transaction::GetSerializedSize() txbody]

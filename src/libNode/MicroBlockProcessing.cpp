@@ -334,7 +334,8 @@ bool Node::OnNodeMissingTxns(const std::vector<unsigned char>& errorMsg,
 }
 
 bool Node::OnCommitFailure(
-    const std::map<unsigned int, std::vector<unsigned char>>& commitFailureMap)
+    const std::map<unsigned int,
+                   std::vector<unsigned char>>& /*commitFailureMap*/)
 {
     LOG_MARKER();
 
