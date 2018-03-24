@@ -155,9 +155,7 @@ public:
     /// Consensus message processing function
     virtual bool ProcessMessage(const std::vector<unsigned char>& message,
                                 unsigned int offset, const Peer& from)
-    {
-        return false; // Should be implemented by ConsensusLeader and ConsensusBackup
-    }
+        = 0;
 
     /// Returns the state of the active consensus session
     State GetState() const;

@@ -384,7 +384,7 @@ bool ConsensusBackup::ProcessMessageAnnounce(
 }
 
 bool ConsensusBackup::ProcessMessageConsensusFailure(
-    const vector<unsigned char>& announcement, unsigned int offset)
+    const vector<unsigned char>&, unsigned int)
 {
     LOG_MARKER();
 
@@ -913,7 +913,7 @@ ConsensusBackup::ConsensusBackup(
 ConsensusBackup::~ConsensusBackup() {}
 
 bool ConsensusBackup::ProcessMessage(const vector<unsigned char>& message,
-                                     unsigned int offset, const Peer& from)
+                                     unsigned int offset, const Peer&)
 {
     LOG_MARKER();
 
